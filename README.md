@@ -1,5 +1,7 @@
 # 📍 CSV to KML Converter with Map Preview
 
+<img width="774" height="600" alt="image" src="https://github.com/user-attachments/assets/50f3e708-9bcc-4b56-b4ce-337d3edd311b" />
+
 Aplikasi desktop berbasis Python untuk mengonversi file CSV yang berisi koordinat geografis menjadi file **KML** (Keyhole Markup Language) yang kompatibel dengan **Google Earth**, serta menyediakan fitur **preview peta interaktif**, dan **drag-and-drop file**.
 
 ## ✨ Fitur Utama
