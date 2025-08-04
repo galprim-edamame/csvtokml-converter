@@ -15,7 +15,7 @@ Aplikasi desktop berbasis Python untuk mengonversi file CSV yang berisi koordina
 
 1. **Jalankan Aplikasi** (`csvtokml.exe` jika di-Windows atau `python csvtokml.py`)
 2. **Drag and Drop file CSV** ke area yang disediakan
-3. **Pastikan data sebelum konversi ke KML
+3. **Pastikan data sebelum konversi ke KML**
 4. Klik `Convert & Save KML` untuk menyimpan file `.kml`
 5. Klik `Preview Peta` untuk membuka peta interaktif
 
