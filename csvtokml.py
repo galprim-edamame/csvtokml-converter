@@ -30,7 +30,7 @@ class CSVtoKMLApp:
     def show_author_info(self):
         info = (
             "📌 Aplikasi: CSV to KML Converter\n"
-            "🧾 Versi: 1.0\n"
+            "🧾 Versi: 1.1\n"
             "👨‍💻 Author: Galih Prima Aditya Firdaus\n"
             "✉️ Email: galprim48@gmail.com\n"
         )
@@ -92,10 +92,16 @@ class CSVtoKMLApp:
         )
         self.preview_button.pack(pady=(0, 20), ipadx=10, ipady=2)
 
+        self.clear_button = tk.Button(
+            root, text="🧹 Clear Data", command=self.clear_data,
+            **button_style
+        )
+        self.clear_button.pack(pady=(0, 15), ipadx=10, ipady=2)
+
         # Footer
         self.footer_label = tk.Label(
             root,
-            text="CSV to KML Converter v1.0 | Author: Galih Prima Aditya Firdaus",
+            text="CSV to KML Converter v1.1 | Author: Galih Prima Aditya Firdaus",
             anchor="w",
             fg="#AAAAAA",
             bg="#2E2E2E",
@@ -206,6 +212,17 @@ class CSVtoKMLApp:
 
         except Exception as e:
             messagebox.showerror("Error", f"Gagal memuat peta: {e}")
+
+    def clear_data(self):
+        """Bersihkan data dan reset tampilan."""
+        self.tree.delete(*self.tree.get_children())
+        self.tree["columns"] = ()
+        self.df = None
+        self.csv_file_path = None
+        self.count_label.config(text="Jumlah data: 0")
+        self.save_button.config(state=tk.DISABLED)
+        self.preview_button.config(state=tk.DISABLED)
+        messagebox.showinfo("Data Dihapus", "Data berhasil dibersihkan.")
 
 
 if __name__ == "__main__":

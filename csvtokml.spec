@@ -5,7 +5,7 @@ a = Analysis(
     ['csvtokml.py'],
     pathex=[],
     binaries=[],
-    datas=[('icon.ico', '.')],
+    datas=[],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
