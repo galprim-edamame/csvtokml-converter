@@ -9,6 +9,16 @@ from tkinterdnd2 import DND_FILES, TkinterDnD
 import sys
 import os
 
+# Fungsi resource_path di luar class
+def resource_path(relative_path):
+    """Dapatkan path file agar bisa diakses baik dari script atau saat dibundel ke .exe"""
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+
+
 class CSVtoKMLApp:
     def center_window(self, width=750, height=550):
         screen_width = self.root.winfo_screenwidth()
@@ -26,19 +36,16 @@ class CSVtoKMLApp:
         )
         messagebox.showinfo("Tentang Aplikasi", info)
 
-    @staticmethod
-    def resource_path(relative_path):
-        try:
-            base_path = sys._MEIPASS
-        except Exception:
-            base_path = os.path.abspath(".")
-        return os.path.join(base_path, relative_path)
-
     def __init__(self, root):
         self.root = root
         self.root.title("CSV to KML Converter")
         self.root.configure(bg="#2E2E2E")
-        self.root.iconbitmap(self.resource_path("icon.ico"))
+
+        # Icon aplikasi
+        icon_path = resource_path("icon.ico")
+        if os.path.exists(icon_path):
+            self.root.iconbitmap(icon_path)
+
         self.center_window()
 
         # Styling
@@ -203,7 +210,7 @@ class CSVtoKMLApp:
 
 if __name__ == "__main__":
     root = TkinterDnD.Tk()
-    root.withdraw()  # Hide the root window
+    root.withdraw()
     app = CSVtoKMLApp(root)
-    root.deiconify()  # Show the main window
+    root.deiconify()
     root.mainloop()
